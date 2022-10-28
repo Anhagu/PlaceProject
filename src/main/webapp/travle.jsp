@@ -51,8 +51,9 @@
 		%>
     <!-- 메인화면 -->
     <Section>
-    <select onchange="window.open(value,'_blank');">
-    	<option disabled>보고싶은 태그를 선택해주세요</option>
+    <select onchange="location.href=this.value">
+    	<option disabled><보고싶은 태그를 선택해주세요></option>
+    	<option value="WriteMain.jsp">전체</option>
     	<option value="travle.jsp" selected="selected">여행</option>
     	<option value="hololife.jsp">자취</option>
     	<option value="shopping.jsp">쇼핑</option>

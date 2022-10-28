@@ -13,9 +13,6 @@
     <link href="css/main_style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
-   
-
     <!-- 헤더 -->
     <Header>
         <div class="Menu">
@@ -50,23 +47,17 @@
 		%>
     <!-- 메인화면 -->
     <Section>
-    <select onchange="window.open(value,'_blank');">
-    	<option disabled>보고싶은 태그를 선택해주세요</option>
+    <select onchange="location.href=this.value">
+    	<option disabled><보고싶은 태그를 선택해주세요></option>
+    	<option value="WriteMain.jsp">전체</option>
     	<option value="travle.jsp">여행</option>
     	<option value="hololife.jsp">자취</option>
     	<option value="shopping.jsp">쇼핑</option>
     </select>
-    	 <div class="choice">
-            
-            <div style="cursor:pointer;"onclick="location.href='travle.jsp'">여행</div>
-            <div style="cursor:pointer;"onclick="location.href='hololife.jsp'">자취</div><!-- 이거  페이지별 반응으로 만ㄷ늘기;  -->
-            <div style="cursor:pointer;" onclick="location.href='shopping.jsp'">쇼핑</div>
-            
-        </div>
         <table>
             <tr>
-                <th>글 번호</th>
                 <th>제목</th>
+                <th>내용</th>
                 <th>작성자</th>
                 <th>조회수</th>
                 <th>작성일자</th>
@@ -76,8 +67,8 @@
             
 		   while(rs.next()){ 
 			   
-					   String swritenum = rs.getString("writenum");
-					   String swritetitle = rs.getString("writetitle"); //파란색은  DB에 저장된 필드명  
+					   String swritetitle = rs.getString("writetitle"); //파란색은  DB에 저장된 필드명
+					   String swritecontent = rs.getString("writecontent");
 					   String susername = rs.getString("username");
 					   String sviewcount = rs.getString("viewcount");
 					   String sRegDate = rs.getString("RegDate");
@@ -85,8 +76,8 @@
 					   
 		%> 
             <tr>
-                <td><%=swritenum %></td>
                 <td><%=swritetitle %></td>
+                <td><%=swritecontent %></td>
                 <td><%=susername %></td>
                 <td><%=sviewcount %></td>
                 <td><%=sRegDate %></td>
